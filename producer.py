@@ -10,13 +10,14 @@ import sys
 import webbrowser
 import csv
 import time
+import os
 
 # Declare constants
 HOST = "localhost"
 PORT = 9999
 ADDRESS_TUPLE = (HOST, PORT)
 INPUT_CSV = "smoker-temps.csv"
-
+SHOW_OFFER = True 
 
 # Configure logging
 from util_logger import setup_logger
@@ -74,9 +75,7 @@ def main_work():
                 message1 = f"[{Timestamp}, {SmokerTemp}]"
                 message2 = f"[{Timestamp}, {FoodATemp}]"
                 message3 = f"[{Timestamp}, {FoodBTemp}]"
-                
-                # To do: Add if statment to only read one value every half minute. (sleep_secs = 30)
-                
+                                
 
                 # Create a binary message from our tuples
                 # Ensure indintation is within look, else only last row will send
@@ -113,8 +112,21 @@ def send_message(queue_name, message):
 # This allows us to import this module and use its functions
 # without executing the code below.
 # If this is the program being run, then execute the code below
-if __name__ == "__main__":  
-    offer_rabbitmq_admin_site()
-    main_work()
+if __name__ == "__main__":
+    # call your offer admin function()
+    if SHOW_OFFER == True:
+        # ask the user if they'd like to open the RabbitMQ Admin site
+        offer_rabbitmq_admin_site()   
+   
+    # call your main() function and catch KeyboardInterrupt during program shutdown.
+    try:
+        main_work()
+    except KeyboardInterrupt:
+        print('Interrupted')
+        try:
+            sys.exit(0)
+        except SystemExit:
+            os._exit(0)
+
 
 
