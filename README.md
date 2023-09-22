@@ -72,11 +72,11 @@ See http://localhost:15672/Links to an external site.
 ## General Design Questions
 
 1. How many producers processes do you need to read the temperatures:
-    - This module uses one producer file (producer.py)
+    - **This module uses one producer file (producer.py)**
 1. How many queues do we use:
-    - Three queues were used.
+    - **Three queues were used.**
 1. How many listening callback functions do we need (Hint: one per queue):
-    - In the next module, three callback functions will be used.
+    - **In the next module, three callback functions will be used.**
 
 ---
 # Directions:
@@ -150,31 +150,32 @@ Vastly different approaches can be expected to earn less credit not more.
 5.	Messages are strings, so use float() to get a numeric value where needed
 6.	 Remember to use with to read the file, or close it when done.
 ### Producer Design Questions
-1.	Can the open() function fail?
-2.	What do we do if we know a statement can fail? Hint: try/except/finally
-3.	Does our data have header row? 
-4.	What happens if we try to call float("Channel1")? 
-5.	How will you handle the header row in your project?
-6.	Will you delete it (easy), or use code to skip it (better/more difficult)?
+1.	Can the open() function fail? **Yes**
+2.	What do we do if we know a statement can fail?  **Include try/except/finally statments**
+3.	Does our data have header row? **Yes**
+4.	What happens if we try to call float("Channel1")? **Floats do not send messages via basic publish; must convert to strings**
+5.	How will you handle the header row in your project? **Skipped the header row**
+6.	Will you delete it (easy), or use code to skip it (better/more difficult)? **Code was used to skip it**
+
 If that's enough to  get started on implementation, please do so. To be guided through implementation, please continue reading.
 ## Producer Implementation Questions/Remarks
-1.	Will you use a file docstring at the top? Hint: yes
-2.	Where do imports go? Hint: right after the file/module docstring
-3.	After imports, declare any constants.
-4.	After constants, define functions.
-5.	Define a function to offer the RabbitMQ admin site, use variables to turn it off temporarily if desired.
+1.	Will you use a file docstring at the top?  **Yes**
+2.	Where do imports go? **Right after the file/module docstring**
+3.	After imports, declare any constants. **X**
+4.	After constants, define functions. **X**
+5.	Define a function to offer the RabbitMQ admin site, use variables to turn it off temporarily if desired. **X**
 6.	Define a main function to
-1.	connect,
-2.	get a communication channel,
-3.	use the channel to queue_delete() all 3 queues 
-4.	use the channel to queue_declare() all 3 queues
-5.	open the file, get your csv reader, for each row, use the channel to basic_publish() a message
-7.	Use the Python idiom to only call  your functions if this is actually the program being executed (not imported). 
-8.	If this is the program that was called:
-1.	call your offer admin function() 
-2.	call your main() function, passing in just the host name as an argument (we don't know the queue name or message yet)
+    1.	connect, **X**
+    2.	get a communication channel, **X**
+3.	use the channel to queue_delete() all 3 queues  **X**
+4.	use the channel to queue_declare() all 3 queues  **X**
+5.	open the file, get your csv reader, for each row, use the channel to basic_publish() a message  **X**
+7.	Use the Python idiom to only call  your functions if this is actually the program being executed (not imported).  **X**
+8.	If this is the program that was called: **__name__ == "__main__":**
+    1.	call your offer admin function()  **X**
+    2.	call your main() function, passing in just the host name as an argument (we don't know the queue name or message yet)   **X**
  
 ### Handle User Interrupts Gracefully
-1.	Will this process be running for a while (half sec per record)?
-2.	If so, modify the code the option for the user to send a Keyboard interrupt (see earlier projects)
+1.	Will this process be running for a while (half sec per record)? **Yes-- added keyboard interrupts X**
+2.	If so, modify the code the option for the user to send a Keyboard interrupt (see earlier projects **X**
 
