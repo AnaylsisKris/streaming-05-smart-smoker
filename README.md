@@ -179,3 +179,5 @@ If that's enough to  get started on implementation, please do so. To be guided t
 1.	Will this process be running for a while (half sec per record)? **Yes-- added keyboard interrupts X**
 2.	If so, modify the code the option for the user to send a Keyboard interrupt (see earlier projects **X**
 
+# Screenshot
+![screenshot](Screenshot.png)
