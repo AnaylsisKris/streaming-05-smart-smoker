@@ -119,3 +119,11 @@ That is:
 - evaluate the deque of readings (either 5 or 20) as though the real timestamps were not so terrible.
 
 It's more complex if we try to use real timestamps. Adjusting for the non-regular timestamps is an interesting problem, but not the point. Know that you will likely have to address issues like that in the "real world". 
+
+# Screenshots
+Smoker Consumer:
+![screenshot](consumer01-smoker_screenshot.png)
+
+
+Food A and Food B Consumers:
+![screenshot](consumerFoodAlerts.png)

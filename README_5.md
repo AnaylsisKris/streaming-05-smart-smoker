@@ -185,5 +185,3 @@ If that's enough to  get started on implementation, please do so. To be guided t
 
 # Screenshot
 ![screenshot](Screenshot.png)
-
-# Module 6 Guided Programming: Consumers, Windowing, and Multiple Channels
