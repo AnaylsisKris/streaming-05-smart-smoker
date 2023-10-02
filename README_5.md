@@ -112,12 +112,14 @@ Vastly different approaches can be expected to earn less credit not more.
 ## Created Virtual Environment on VS Code and 2 additional Terminals
 
 `python -m venv .venv`
+`python3 -m virtualenv venv311`
 
 ## Activated the Virtual Environment
 
 1. In the same VS Code terminal window, activated the virtual environment.
 
     `source .venv/bin/activate`
+    `source venv311/bin/activate`
 
 2. Verified the virtual environment
  - making sure name (.venv) was in terminal prompt, ran 'util_aboutenv.py' 
@@ -126,6 +128,8 @@ Vastly different approaches can be expected to earn less credit not more.
 4. Installed Dependencies into the Virtual Environment using Pip
 
     `pip install pika`
+    `pip install toml-to-requirements`
+    `pip install pyproject`
 
 ## Run .py Files
 - Run producer1.py in VS Code Terminal
@@ -181,3 +185,5 @@ If that's enough to  get started on implementation, please do so. To be guided t
 
 # Screenshot
 ![screenshot](Screenshot.png)
+
+# Module 6 Guided Programming: Consumers, Windowing, and Multiple Channels
