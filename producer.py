@@ -16,7 +16,7 @@ import os
 HOST = "localhost"
 PORT = 9999
 ADDRESS_TUPLE = (HOST, PORT)
-INPUT_CSV = "smoker-temps.csv"
+INPUT_CSV = "/Users/kristenfinley/Documents/streaming-05-smart-smoker/smoker-temps.csv"
 SHOW_OFFER = True
 
 # Configure logging
@@ -70,9 +70,9 @@ def main_work():
                 Timestamp, SmokerTemp, FoodATemp, FoodBTemp = row
 
                 # create a tuples of messages to send to the queue
-                message1 = f"[{Timestamp}, {SmokerTemp}]"
-                message2 = f"[{Timestamp}, {FoodATemp}]"
-                message3 = f"[{Timestamp}, {FoodBTemp}]"
+                message1 = f"{Timestamp}, {SmokerTemp}"
+                message2 = f"{Timestamp}, {FoodATemp}"
+                message3 = f"{Timestamp}, {FoodBTemp}"
 
                 # Create a binary message from our tuples
                 # Ensure indintation is within look, else only last row will send
